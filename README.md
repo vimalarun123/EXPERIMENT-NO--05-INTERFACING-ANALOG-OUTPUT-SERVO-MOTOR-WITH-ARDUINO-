@@ -36,23 +36,12 @@ An external controller (such as the Arduino) tells the servo where to go with a 
  ![image](https://user-images.githubusercontent.com/36288975/163544513-ca497421-e6ba-4f91-871f-5cfba77f22a8.png)
 
 
-### Figure-03 SERVO MOTOR OVERVIEW 
-
- 
 
 
- 
+### CIRCUIT DIAGRAM
 
+![exp 6](https://user-images.githubusercontent.com/75234646/167767436-2c04fcc6-610a-47ea-92f7-2e66719b0e88.png)
 
-
-
-
-CIRCUIT DIAGRAM
- 
- 
- ![image](https://user-images.githubusercontent.com/36288975/163544618-6eb8a7b5-7f1a-428a-8d9f-fd899b145efb.png)
-
-### FIGURE 04 CIRCUIT DIAGRAM
 
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
@@ -68,12 +57,25 @@ CIRCUIT DIAGRAM
 
 ### PROGRAM :
  
+```c
 
+#include <Servo.h>
+Servo servobase;
+void setup()
+{
+servobase.attach(A0);
+    servobase.write(0);
 
+Serial.begin(9600);
+}
+void loop()
+{
+ int i = Serial.parseInt();  
+  servobase.write(i);
+delay(1000);
+}
 
-
-
-
+```
 
 
 
